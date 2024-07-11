@@ -1,0 +1,199 @@
+---
+title: "assignment1"
+author: "aganthiya"
+date: "2024-07-11"
+output: html_document
+---
+
+output:
+  
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+        
+  pdf_document:
+    
+    fig_caption: true
+    fig_crop: false
+  word_document: default
+params:
+    printcode: false
+
+
+---
+title: "assignment"
+author: "aganthiya"
+date: "2024-07-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(ISLR)
+```
+```{r}
+data("Auto")
+```
+
+```{r}
+summary(complete.cases(Auto))
+```
+
+```{r}
+auto=Auto 
+```
+### A)Which of the predictors are quantitative, and which are qualitative?
+```{r}
+str(auto)
+```
+### B)What is the range of each quantitative predictor? You can answer this using the range() function.
+
+```{r}
+print("mpg")
+range(auto$mpg)
+```
+```{r}
+print("cyclinders")
+range(auto$cylinders)
+```
+```{r}
+print("displacment")
+range(auto$displacement)
+
+```
+```{r}
+print("horsepower")
+range(auto$horsepower)
+
+```
+```{r}
+print("weight")
+range(auto$weight)
+```
+```{r}
+print("acceleration")
+range(auto$acceleration)
+
+```
+```{r}
+print("year")
+range(auto$year)
+```
+### C)What is the mean and standard deviation of each quantitative predictor?
+```{r}
+print("Mean and Standard deviation for mpg")
+mean(auto$mpg)
+sd(auto$mpg)
+```
+```{r}
+print("Mean and Standard deviation for cylinders")
+mean(auto$cylinders)
+sd(auto$cylinders)
+```
+```{r}
+print("Mean and Standard deviation for displacement")
+mean(auto$displacement)
+sd(auto$displacement)
+```
+
+```{r}
+print("Mean and Standard deviation for horsepower")
+mean(auto$horsepower)
+sd(auto$horsepower)
+```
+```{r}
+print("Mean and Standard deviation for weight")
+mean(auto$weight)
+sd(auto$weight)
+```
+```{r}
+print("Mean and Standard deviation for acceleration")
+mean(auto$acceleration)
+sd(auto$acceleration)
+
+```
+### D)Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains? 
+```{r}
+removed_auto<-auto[-10:-84,]
+removed_auto
+```
+```{r}
+print("range,Mean and Standard deviation for mpg")
+range(removed_auto$mpg)
+mean(removed_auto$mpg)
+sd(removed_auto$mpg)
+```
+```{r}
+print("range,Mean and Standard deviation for cylinders")
+range(removed_auto$cylinders)
+mean(removed_auto$cylinders)
+sd(removed_auto$cylinders)
+```
+```{r}
+print("range,Mean and Standard deviation for displacement")
+range(removed_auto$displacement)
+mean(removed_auto$displacement)
+sd(removed_auto$displacement)
+
+```
+```{r}
+print("range,Mean and Standard deviation for horsepower")
+range(removed_auto$horsepower)
+mean(removed_auto$horsepower)
+sd(removed_auto$horsepower)
+
+```
+```{r}
+print("range,Mean and Standard deviation for weight")
+range(removed_auto$weight)
+mean(removed_auto$weight)
+sd(removed_auto$weight)
+
+```
+```{r}
+print("range,Mean and Standard deviation for acceleration")
+range(removed_auto$acceleration)
+mean(removed_auto$acceleration)
+sd(removed_auto$acceleration)
+
+```
+### E)Using the full data set, investigate the predictors graphically, using scatterplots or other tools of your choice. Create some plots highlighting the relationships among the predictors. Comment on your findings.
+```{r}
+pairs(auto)
+```
+```{r}
+par(mfrow=c(2,2))
+plot(auto$mpg,auto$displacement)
+plot(auto$mpg,auto$horsepower)
+plot(auto$mpg,auto$weight)
+plot(auto$mpg,auto$acceleration)
+```
+```{r}
+par(mfrow=c(2,2))
+plot(auto$displacement,auto$horsepower)
+plot(auto$displacement,auto$weight)
+plot(auto$displacement,auto$acceleration)
+```
+```{r}
+par(mfrow=c(1,2))
+plot(auto$horsepower,auto$weight)
+plot(auto$horsepower,auto$acceleration)
+```
+### F)Suppose that we wish to predict gas mileage (mpg) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting mpg? Justify your answer
+
+```{r}
+par(mfrow=c(2,2))
+plot(auto$mpg,auto$displacement)
+plot(auto$mpg,auto$horsepower)
+plot(auto$mpg,auto$weight)
+plot(auto$mpg,auto$acceleration)
+```
+```{r}
+
+```
+
